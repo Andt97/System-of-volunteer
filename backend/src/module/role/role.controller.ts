@@ -15,13 +15,13 @@ export class RoleController {
   }
 
   @Get()
-  findAll() {
+  async findAll() {
     return this.roleService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.roleService.findOne(+id);
+  async findOne(@Param('id') id: string) {
+    return await this.roleService.findOne(+id);
   }
 
   @Patch(':id')
@@ -30,7 +30,7 @@ export class RoleController {
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.roleService.remove(+id);
+  async remove(@Param('id') id: string) {
+    return await this.roleService.remove(+id);
   }
 }
