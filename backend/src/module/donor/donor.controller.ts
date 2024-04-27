@@ -14,13 +14,13 @@ export class DonorController {
   }
 
   @Get()
-  findAll() {
+ async findAll() {
     return this.donorService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.donorService.findOne(+id);
+  async findOne(@Param('id') id: string) {
+    return await this.donorService.findOne(+id);
   }
 
   @Patch(':id')
@@ -29,7 +29,7 @@ export class DonorController {
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.donorService.remove(+id);
+  async remove(@Param('id') id: string) {
+    return await this.donorService.remove(+id);
   }
 }
