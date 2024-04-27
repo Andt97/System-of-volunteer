@@ -15,13 +15,13 @@ export class VolunteerController {
   }
 
   @Get()
-  findAll() {
+  async findAll() {
     return this.volunteerService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.volunteerService.findOne(+id);
+  async findOne(@Param('id') id: string) {
+    return await this.volunteerService.findOne(+id);
   }
 
   @Patch(':id')
@@ -30,7 +30,7 @@ export class VolunteerController {
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.volunteerService.remove(+id);
+  async remove(@Param('id') id: string) {
+    return await this.volunteerService.remove(+id);
   }
 }
